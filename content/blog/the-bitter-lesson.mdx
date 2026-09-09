@@ -1,0 +1,42 @@
+---
+title: "The Bitter Lesson"
+date: "2026-09-09"
+author: "Gary Takahashi, MD, MS, FACP"
+category: "ai_medicine"
+description: "Gary Takahashi explores what the Bitter Lesson means for medical AI, from frontier model performance to auditable systems and better evaluation."
+keyTakeaways: []
+---
+
+Medicine has always been a prime candidate for advanced information retrieval. For decades, doctors have sought better ways to instantly access comprehensive data for the complex cases they face every day.
+
+When large language models (LLMs) burst into the public consciousness in late 2022 with ChatGPT, a flood of healthcare apps quickly followed. However, most of these were merely thin "wrappers" built around the core GPT technology. Unsurprisingly, these early iterations struggled to handle anything beyond basic, straightforward queries; the nuanced demands of medical diagnostics were simply too much for them.
+
+As basic chat functionality quickly became commoditized, AI researchers pivoted toward domain-specific fine-tuning. This shift gave rise to highly specialized, medically trained models like Med-PaLM 2 and Flan-PaLM. While these bespoke models generated massive excitement in the tech and healthcare communities, they currently still remain confined to the lab as research tools, and are not yet cleared for general clinical use.
+
+Still, the restriction of models like Med-PaLM to the research lab hasn't stopped the industry from pushing forward with medicine-specific AI assistants designed for clinical decision support. Heavyweights in medical content, such as UpToDate and EBSCO, have already launched their own expert AI systems. Meanwhile, medical networking giant Doximity acquired Pathway, a company that built evidence-based AI tools powered by a robust knowledge graph architecture. While these platforms often include handy administrative features like automated scribing and messaging, their core mission has been to give physicians frictionless access to highly curated medical monographs and literature.
+
+However, a major hurdle remains: the underlying technology powering these commercial chat models is strictly proprietary. This "black box" approach makes independent, comprehensive evaluation nearly impossible. Compounding the issue is the fact that the industry still lacks a widely-accepted standardized benchmarking process for medical AI.
+
+Currently, models are often tested on datasets like medical board Q&As, clinicopathological conference archives, or medical journal extracts. The flaw here is a classic machine learning problem known as data contamination—we are likely just testing the model's ability to regurgitate training data it has already been exposed to and memorized. Passing a multiple-choice medical exam doesn't prove an AI can reason through novel clinical scenarios, nor does it test the model's ability to integrate cutting-edge research that falls outside of its original pretraining window.
+
+In the meantime, general-purpose "frontier" models have continued to evolve, ballooning in both sophistication and the sheer number of trainable parameters. Machine learning researchers have observed a fascinating phenomenon known as scaling laws: as you exponentially increase the amount of training data, computational power (compute), and model size, the AI's performance reliably and predictably improves.
+
+This relentless march of scale brings to mind a famous 2019 essay by AI pioneer Rich Sutton. He argued that, in the long run, general-purpose models that leverage massive computational scale will inevitably outperform heavily hand-crafted, domain-specific systems. Sutton pointed to the histories of computer chess, speech recognition, and computer vision—fields where brute-force computation and search ultimately crushed specialized, human-engineered approaches. For researchers who spend years meticulously crafting domain-specific rules, Sutton famously dubbed this inevitable triumph of scale "The Bitter Lesson."
+
+The reality of "The Bitter Lesson" was vividly illustrated in a recent paper by Vishwanath *et al.* The researchers pitted the latest generation of general-purpose frontier models—including GPT-5.2, Gemini 3.1 Pro, and Claude 4.6 Opus—against specialized medical platforms like OpenEvidence and UpToDate AI.
+
+Evaluating the models across standard benchmarks like MedQA and HealthBench, alongside a custom dataset of complex clinical vignettes, the authors uncovered a striking disparity. The general-purpose frontier models operated in a distinctly higher tier of performance. In fact, the bespoke medical AIs performed no better than a standard Google AI Overview.
+
+Even more concerning was how the specialized tools handled the nuanced clinical vignettes. The medicine-specific assistants still struggled with AI hallucinations—generating fabricated information at a rate of 3.8% for OpenEvidence and 5% for UpToDate. Furthermore, they suffered from outright factual inaccuracies, with OpenEvidence returning incorrect information 7.7% of the time and UpToDate failing at a rate of 10%.
+
+What does this mean for the future of healthcare AI? If Sutton's "Bitter Lesson" holds true—and general-purpose frontier models continue to exhibit emergent superiority over domain-specific tools—the medical field must adapt its strategy.
+
+First and foremost, if we are going to rely on these massive, generalized models, they must be rigorously auditable. Furthermore, developers will need to pioneer new architectures that bypass the limitations of standard Retrieval-Augmented Generation (RAG), which, as the data shows, is still dangerously prone to hallucinations. As frontier models inevitably scale up and their reasoning capabilities sharpen, medicine-focused developers must shift away from stale architectures. Building a successful medical AI assistant will require a deep dive into novel harness engineering, along with robust evaluation and integration frameworks that make these models safe, transparent, and reliable enough for the clinic.
+
+## Further reading
+
+Viswanath, K. et al. (2026). General-purpose large language models outperform specialized clinical AI tools on medical benchmarks. Nature Medicine.  [https://www.nature.com/articles/s41591-026-04431-5](https://www.nature.com/articles/s41591-026-04431-5)
+
+Sutton, R. (2019). The Bitter Lesson. [http://www.incompleteideas.net/IncIdeas/BitterLesson.html](http://www.incompleteideas.net/IncIdeas/BitterLesson.html)
+
+Bidart, R. (2023). Scaling laws and the Bitter Lesson. AI+Healthcare+Canada.  [https://renebidart.substack.com/p/scaling-laws-and-the-bitter-lesson](https://renebidart.substack.com/p/scaling-laws-and-the-bitter-lesson)

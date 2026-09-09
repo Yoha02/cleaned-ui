@@ -41,7 +41,7 @@ const mdxComponents = {
     <strong className="font-semibold text-text-primary" {...props} />
   ),
   a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-    <a className="text-teal hover:text-teal-light underline underline-offset-2 transition-colors" {...props} />
+    <a className="text-teal hover:text-teal-light underline underline-offset-2 transition-colors [overflow-wrap:anywhere]" {...props} />
   ),
   blockquote: (props: React.HTMLAttributes<HTMLQuoteElement>) => (
     <blockquote className="border-l-4 border-teal pl-4 my-6 italic text-text-secondary" {...props} />
