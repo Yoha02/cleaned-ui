@@ -7,16 +7,13 @@ export default function TeamSection() {
     <>
       <section id="applications" className="bg-paper py-24 sm:py-32">
         <Container>
-          <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-end">
+          <div className="max-w-4xl">
             <div>
               <p className="eyebrow text-cyan-deep">Enterprise infrastructure</p>
               <h2 className="mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.05em] text-ink sm:text-5xl lg:text-6xl">
                 One architecture. Many living knowledge systems.
               </h2>
             </div>
-            <p className="max-w-2xl text-lg leading-8 text-ink-muted lg:pb-2">
-              License the knowledge layer, integrate it into a platform, or deploy it inside a governed clinical workflow.
-            </p>
           </div>
 
           <div className="mt-14 grid gap-5 lg:grid-cols-3">

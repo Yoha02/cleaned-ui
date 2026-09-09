@@ -6,9 +6,21 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { siteNavigation } from '@/content/site'
 import { AprilioWordmark } from '@/components/BrandLogo'
 
-export default function Navigation() {
+const researchNavigation = [
+  { href: '/#research-agenda', label: 'Research' },
+  { href: '/#research-method', label: 'Method' },
+  { href: '/architecture', label: 'Architecture' },
+  { href: '/#evaluations', label: 'Evaluations' },
+  { href: '/blog', label: 'Research Notes' },
+  { href: '/about', label: 'Team' },
+]
+
+export default function Navigation({ variant = 'default' }: { variant?: 'default' | 'research' }) {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const navigationItems = variant === 'research' ? researchNavigation : siteNavigation
+  const actionHref = variant === 'research' ? '/#collaborate' : '/work-with-us'
+  const actionLabel = variant === 'research' ? 'Collaborate' : 'Work with us'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16)
@@ -38,11 +50,11 @@ export default function Navigation() {
         </Link>
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Primary navigation">
-          {siteNavigation.map((item) => (
+          {navigationItems.map((item) => (
             <Link
               key={item.href}
               href={item.href}
-              className="rounded-full px-3.5 py-2 text-sm font-medium text-ink-muted transition-colors hover:bg-ink/[0.04] hover:text-ink"
+              className="whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-medium text-ink-muted transition-colors hover:bg-ink/[0.04] hover:text-ink"
             >
               {item.label}
             </Link>
@@ -50,8 +62,8 @@ export default function Navigation() {
         </nav>
 
         <div className="hidden md:block">
-          <Link href="/contact" className="button-link button-link-dark text-sm">
-            Request a demo
+          <Link href={actionHref} className="button-link button-link-dark whitespace-nowrap text-sm">
+            {actionLabel}
             <span aria-hidden="true">↗</span>
           </Link>
         </div>
@@ -79,7 +91,7 @@ export default function Navigation() {
             className="mx-auto mt-2 max-w-7xl rounded-2xl border border-ink/10 bg-white p-3 shadow-xl md:hidden"
           >
             <nav className="flex flex-col" aria-label="Mobile navigation">
-              {siteNavigation.map((item) => (
+              {navigationItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
@@ -90,11 +102,11 @@ export default function Navigation() {
                 </Link>
               ))}
               <Link
-                href="/contact"
+                href={actionHref}
                 onClick={() => setMobileOpen(false)}
                 className="button-link button-link-dark mt-2 justify-center"
               >
-                Request a demo <span aria-hidden="true">↗</span>
+                {actionLabel} <span aria-hidden="true">↗</span>
               </Link>
             </nav>
           </motion.div>

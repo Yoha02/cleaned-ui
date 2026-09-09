@@ -1,33 +1,28 @@
 export const siteNavigation = [
-  { href: '/#live-trace', label: 'See it work' },
-  { href: '/#engine', label: 'Architecture' },
-  { href: '/#evidence', label: 'Evidence' },
-  { href: '/#applications', label: 'Applications' },
+  { href: '/#research-agenda', label: 'Research' },
+  { href: '/architecture', label: 'Method' },
+  { href: '/#evaluations', label: 'Evaluations' },
+  { href: '/blog', label: 'Research Notes' },
+  { href: '/about', label: 'Team' },
 ]
 
 export const team = [
   {
     initials: 'ET',
-    name: 'Ebrahim Tarshizi',
-    role: 'Operations & research',
+    name: 'Ebrahim Tarshizi, PhD, MBA',
+    role: 'Co-founder · Operations & research',
     bio: 'Academic partnerships, research coordination, and operational execution.',
   },
   {
     initials: 'GT',
-    name: 'Gary Takahashi, MD',
-    role: 'Clinical architecture',
+    name: 'Gary Takahashi, MD, MS, FACP',
+    role: 'Co-founder · Lead scientist',
     bio: 'Medical oncologist and creator of the original guideline retrieval system.',
   },
   {
-    initials: 'AV',
-    name: 'Andrew Van Benschoten',
-    role: 'Systems & strategy',
-    bio: 'Cloud architecture, commercial strategy, and the adaptive harness concept.',
-  },
-  {
     initials: 'EM',
-    name: 'Eyoha Mengistu',
-    role: 'Product & automation',
+    name: 'Eyoha Mengistu, MS',
+    role: 'Co-founder · Product & automation',
     bio: 'Product systems, automation, interface design, and market development.',
   },
 ]
@@ -35,29 +30,29 @@ export const team = [
 export const architectureStages = [
   {
     number: '01',
-    eyebrow: 'The process',
-    title: 'Map the hidden structure',
+    eyebrow: 'The map',
+    title: 'Identify structure and update the ontology',
     agent: 'Cartographer agent',
     description:
-      'Reads the source hierarchy before retrieval begins, preserving sections, pathways, and decision logic.',
-    output: 'Structural blueprint',
+      'Reads medical references, preserves their hierarchy, and creates machine-readable nodes and relationships.',
+    output: 'Ontology + source map',
   },
   {
     number: '02',
-    eyebrow: 'The artifact',
-    title: 'Build a reusable source map',
-    agent: 'Ontoharness',
+    eyebrow: 'The retrieval',
+    title: 'Attach intent to navigational anchors',
+    agent: 'Semantic annotator',
     description:
-      'Maps clinical intent onto that structure to create reusable navigation and evidence rules.',
-    output: 'Dataset-specific harness',
+      'Links query topics to sections, pages, citations, evidence grades, and current external signals.',
+    output: 'Provenance-tagged evidence',
   },
   {
     number: '03',
-    eyebrow: 'The action',
-    title: 'Issue a source-linked answer',
-    agent: 'Factum',
+    eyebrow: 'The synthesis',
+    title: 'Curate an auditable response',
+    agent: 'Architect',
     description:
-      'Retrieves by structure, checks fresh updates, and returns an answer with exact provenance or stops.',
+      'Builds a response from collected Factums and stops when the available evidence cannot support a claim.',
     output: 'Verified, current Factum',
   },
 ]

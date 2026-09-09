@@ -6,17 +6,16 @@ export function AprilioWordmark({ placement = 'navigation', priority = false }: 
   return (
     <span
       data-brand="aprilio-wordmark"
-      className={`relative block shrink-0 overflow-hidden ${isFooter ? 'h-[48px] w-[152px]' : 'h-10 w-[126px]'}`}
+      className={`relative block shrink-0 ${isFooter ? 'h-14 w-[180px]' : 'h-16 w-[204px]'}`}
       aria-hidden="true"
     >
       <Image
-        src="/brand/aprilio-wordmark.png"
+        src="/brand/aprilio-wordmark.svg"
         alt=""
-        width={1024}
-        height={447}
+        fill
         priority={priority}
-        sizes={isFooter ? '180px' : '150px'}
-        className={`pointer-events-none absolute max-w-none select-none mix-blend-multiply ${isFooter ? '-left-[14px] -top-[14px] w-[180px]' : '-left-[11px] -top-[11px] w-[150px]'}`}
+        sizes={isFooter ? '180px' : '204px'}
+        className="pointer-events-none select-none object-contain"
       />
     </span>
   )

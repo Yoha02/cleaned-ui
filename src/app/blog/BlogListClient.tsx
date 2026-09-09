@@ -6,7 +6,6 @@ import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
 import Container from '@/components/ui/Container'
 import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
-import GradientText from '@/components/ui/GradientText'
 import BlogCard from '@/components/BlogCard'
 import type { Article } from '@/lib/articles'
 
@@ -31,21 +30,21 @@ export default function BlogListClient({
 
   return (
     <>
-      <Navigation />
+      <Navigation variant="research" />
       <main>
         {/* Hero */}
-        <section className="relative bg-dark-surface pt-32 pb-20 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,201,167,0.06),transparent_60%)]" />
+        <section className="hero-light relative overflow-hidden pb-20 pt-32">
+          <div className="hero-aurora absolute inset-0 opacity-65" />
           <Container className="relative">
             <AnimateOnScroll>
-              <p className="text-sm font-semibold uppercase tracking-wider text-teal mb-4">
-                Insights
+              <p className="eyebrow mb-4 text-cyan-deep">
+                Research notes
               </p>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white font-[family-name:var(--font-heading)]">
-                <GradientText>Blog</GradientText>
+              <h1 className="max-w-4xl text-4xl font-semibold tracking-[-0.05em] text-ink sm:text-5xl lg:text-6xl">
+                Methods, failure studies, and open questions.
               </h1>
-              <p className="mt-6 text-lg text-text-on-dark-muted max-w-2xl leading-relaxed">
-                Insights on AI in clinical oncology, grounded retrieval, and evidence-based medicine.
+              <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-muted">
+                Working notes from our research on ontology, source structure, changing evidence, and grounded medical knowledge systems.
               </p>
             </AnimateOnScroll>
           </Container>

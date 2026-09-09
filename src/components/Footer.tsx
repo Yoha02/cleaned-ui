@@ -12,7 +12,7 @@ export default function Footer() {
               <AprilioWordmark placement="footer" />
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-6 text-ink-muted">
-              Grounded retrieval for knowledge that must stay current, traceable, and bounded.
+              A multidisciplinary research effort studying structure-first retrieval for changing medical knowledge.
             </p>
           </div>
 
@@ -24,25 +24,24 @@ export default function Footer() {
                   {item.label}
                 </Link>
               ))}
-              <Link href="/blog" className="text-sm text-ink-muted hover:text-ink">Journal</Link>
-              <Link href="/paper" className="text-sm text-ink-muted hover:text-ink">Research</Link>
+              <Link href="/#collaborate" className="text-sm text-ink-muted hover:text-ink">Collaborate</Link>
             </div>
           </div>
 
           <div>
-            <p className="eyebrow text-ink-muted">Build with Aprilio</p>
+            <p className="eyebrow text-ink-muted">Research with Aprilio</p>
             <p className="mt-4 text-sm leading-6 text-ink-muted">
-              Licensing, platform integration, and research partnerships.
+              Governed knowledge sources, clinical evaluation, and external validation.
             </p>
-            <Link href="/contact" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-ink">
-              contact@aprilio.ai <span aria-hidden="true">↗</span>
+            <Link href="/work-with-us" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-ink">
+              Discuss a collaboration <span aria-hidden="true">↗</span>
             </Link>
           </div>
         </div>
 
         <div className="mt-12 flex flex-col gap-3 border-t border-ink/10 pt-6 text-xs text-ink-faint sm:flex-row sm:items-center sm:justify-between">
           <p>© {new Date().getFullYear()} Aprilio, LLC.</p>
-          <p>Built by clinicians, researchers, and systems engineers.</p>
+          <p>Research-stage system · Not for clinical use</p>
         </div>
       </div>
     </footer>

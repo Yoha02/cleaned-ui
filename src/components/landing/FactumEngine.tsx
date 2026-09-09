@@ -92,7 +92,7 @@ export default function FactumEngine() {
                 <span className="font-mono text-[11px] uppercase text-ink-faint">2 live inputs</span>
               </div>
               <div className="mt-4 space-y-3">
-                <SourceCard active={phase >= 1} tag="GUIDELINE" title="NCCN · Acute Myeloid Leukemia" meta="v3.2026 · 214 pages" accent="cyan" note="14 relevant sections mapped" />
+                <SourceCard active={phase >= 1} tag="GUIDELINE" title="ESMO · Acute Myeloid Leukemia" meta="v3.2026 · 214 pages" accent="cyan" note="14 relevant sections mapped" />
                 <SourceCard active={phase >= 2} tag="LIVE UPDATE" title="FDA approval notice" meta="13 May 2026 · newer than source" accent="factum" note="Recency conflict detected" />
               </div>
               <div className={`mt-4 rounded-2xl border border-dashed p-3 transition-all duration-500 ${phase >= 1 ? 'border-violet/35 bg-violet/5 opacity-100' : 'border-ink/10 opacity-45'}`}>
@@ -145,7 +145,7 @@ export default function FactumEngine() {
                       <p className="mt-4 text-[17px] font-semibold leading-7 sm:text-[19px]">For older adults ineligible for intensive induction, the guideline-backed regimen set remains intact.</p>
                       <p className="mt-3 text-sm leading-6 text-white/75 sm:text-[15px]">A newer FDA approval is isolated as a late-breaking update for clinician review, not silently merged into guideline consensus.</p>
                       <div className="mt-4 rounded-xl border border-factum/20 bg-factum/10 p-3.5"><p className="font-mono text-[11px] font-bold uppercase tracking-[0.07em] text-factum">Uncertainty boundary preserved</p><p className="mt-1.5 text-[13px] leading-5 text-white/70">No claim extends beyond retrieved evidence.</p></div>
-                      <div className="mt-4 flex flex-wrap gap-2"><CitationDot color="bg-cyan" label="NCCN · exact pages" /><CitationDot color="bg-factum" label="FDA · 13 May 2026" /></div>
+                      <div className="mt-4 flex flex-wrap gap-2"><CitationDot color="bg-cyan" label="ESMO · exact pages" /><CitationDot color="bg-factum" label="FDA · 13 May 2026" /></div>
                     </motion.div>
                   )}
                 </AnimatePresence>

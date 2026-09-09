@@ -23,7 +23,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://aprilio.ai'),
   title: {
-    default: 'Aprilio — Verified knowledge for high-stakes decisions',
+    default: 'Aprilio | Verified knowledge for high-stakes decisions',
     template: '%s | Aprilio',
   },
   description:
@@ -37,13 +37,13 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://aprilio.ai',
     siteName: 'Aprilio',
-    title: 'Aprilio — Verified knowledge for high-stakes decisions',
+    title: 'Aprilio | Verified knowledge for high-stakes decisions',
     description:
       'Structurally grounded retrieval for current answers, exact provenance, and AI that knows when to stop.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Aprilio — Verified knowledge for high-stakes decisions',
+    title: 'Aprilio | Verified knowledge for high-stakes decisions',
     description:
       'Structurally grounded retrieval for current answers, exact provenance, and AI that knows when to stop.',
   },

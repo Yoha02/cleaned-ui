@@ -8,6 +8,8 @@ RUN npm ci --only=production
 
 FROM base AS builder
 WORKDIR /app
+ARG NEXT_PUBLIC_RESEARCH_LANDING=false
+ENV NEXT_PUBLIC_RESEARCH_LANDING=$NEXT_PUBLIC_RESEARCH_LANDING
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 RUN npm run build

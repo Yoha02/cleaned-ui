@@ -11,11 +11,11 @@ import Button from '@/components/ui/Button'
 import { submitContactForm, type ContactFormState } from './actions'
 
 const roles = [
-  'Clinical Knowledge Publisher',
-  'Health System',
-  'AI or Clinical Platform',
+  'Knowledge-Source Partner',
+  'Clinical Researcher',
+  'Academic Institution',
   'Research Partner',
-  'Investor',
+  'Health System',
   'Other',
 ]
 
@@ -26,7 +26,7 @@ export default function ContactPage() {
 
   return (
     <>
-      <Navigation />
+      <Navigation variant="research" />
       <main>
         {/* Hero */}
         <section className="hero-light relative overflow-hidden pb-20 pt-32">
@@ -34,12 +34,12 @@ export default function ContactPage() {
           <div className="hero-noise absolute inset-0 opacity-[0.06]" aria-hidden="true" />
           <Container className="relative">
             <AnimateOnScroll>
-              <p className="eyebrow text-cyan-deep">Talk to our team</p>
+              <p className="eyebrow text-cyan-deep">Research inquiry</p>
               <h1 className="mt-5 max-w-3xl text-5xl font-semibold leading-[1.02] tracking-[-0.055em] text-ink sm:text-6xl lg:text-7xl">
-                Request a product walkthrough.
+                Start a research conversation.
               </h1>
               <p className="mt-6 max-w-2xl text-lg leading-8 text-ink-muted">
-                Tell us about your knowledge system, clinical workflow, or partnership opportunity.
+                Tell us about the source, clinical question, specialty, or validation setting you would like to study.
               </p>
             </AnimateOnScroll>
           </Container>
@@ -131,7 +131,7 @@ export default function ContactPage() {
                           rows={5}
                           required
                           className="w-full px-4 py-2.5 rounded-md border border-navy/10 bg-surface text-text-primary placeholder:text-text-tertiary focus:border-teal focus:ring-1 focus:ring-teal/20 transition-colors resize-none"
-                          placeholder="Tell us about your use case..."
+                          placeholder="Tell us about the research question, source set, or evaluation setting..."
                         />
                       </div>
 
@@ -142,7 +142,7 @@ export default function ContactPage() {
                         className="w-full"
                         disabled={isPending}
                       >
-                        {isPending ? 'Sending...' : 'Request a Demo'}
+                        {isPending ? 'Sending...' : 'Send Research Inquiry'}
                       </Button>
                     </form>
                   )}
@@ -156,11 +156,10 @@ export default function ContactPage() {
                     <GlowCard glowColor="teal">
                       <div className="p-5">
                         <h3 className="text-base font-bold text-text-primary font-[family-name:var(--font-heading)] mb-2">
-                          Technical Walkthrough
+                          Research Walkthrough
                         </h3>
                         <p className="text-sm text-text-secondary leading-relaxed mb-3">
-                          See the Factum Engine, adaptive harness, provenance trace,
-                          and reliability workflow using a real clinical case.
+                          Review the working prototype, source-mapping method, and comparative evaluation using a defined clinical question.
                         </p>
                         <p className="text-xs text-text-tertiary italic">
                           We coordinate sessions directly with the founding team.
@@ -174,10 +173,10 @@ export default function ContactPage() {
                           Email Us Directly
                         </h3>
                         <a
-                          href="mailto:contact@aprilio.ai"
+                          href="mailto:info@aprilio.ai"
                           className="text-sm text-teal hover:text-teal-light transition-colors"
                         >
-                          contact@aprilio.ai
+                          info@aprilio.ai
                         </a>
                       </div>
                     </GlowCard>
@@ -190,15 +189,15 @@ export default function ContactPage() {
                         <ul className="text-sm text-text-secondary space-y-2">
                           <li className="flex items-start gap-2">
                             <span className="text-teal mt-0.5">&#10003;</span>
-                            Use-case and integration review
+                            Research question and source review
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-teal mt-0.5">&#10003;</span>
-                            Architecture-focused walkthrough
+                            Method and evaluation walkthrough
                           </li>
                           <li className="flex items-start gap-2">
                             <span className="text-teal mt-0.5">&#10003;</span>
-                            Direct founder conversation
+                            Direct research-team conversation
                           </li>
                         </ul>
                       </div>

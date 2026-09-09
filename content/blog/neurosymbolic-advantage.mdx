@@ -3,19 +3,19 @@ title: "The Neurosymbolic Advantage: Why Structured Data Beats Bigger Models"
 date: "2026-05-06"
 author: "Aprilio Research"
 category: "grounded_retrieval"
-description: "NCCN guidelines aren't just documents — they're a clinical ontology. Here's why using them as a symbolic scaffold for LLM-based retrieval outperforms pure neural approaches."
+description: "ESMO guidelines aren't just documents — they're a clinical ontology. Here's why using them as a symbolic scaffold for LLM-based retrieval outperforms pure neural approaches."
 keyTakeaways:
-  - "NCCN guidelines provide a de facto cancer ontology: taxonomy, biomarker features, treatment algorithms, and evidence grading"
+  - "ESMO guidelines provide a de facto cancer ontology: taxonomy, biomarker features, treatment algorithms, and evidence grading"
   - "Grounded Retrieval uses structured navigation (TOC extraction, section identification, page scoring) instead of vector similarity search"
   - "This approach mirrors neurosymbolic AI principles — combining neural language understanding with symbolic knowledge structures"
   - "Recent research shows neurosymbolic frameworks achieving zero safety violations compared to 8.5% for GPT-4o alone"
 ---
 
-## NCCN Guidelines Are Not Just Documents
+## ESMO Guidelines Are Not Just Documents
 
-When most people think about clinical practice guidelines, they imagine long PDF documents that clinicians skim when time allows. But NCCN guidelines are something far more structured — they encode a clinical ontology that represents decades of expert consensus.
+When most people think about clinical practice guidelines, they imagine long PDF documents that clinicians skim when time allows. But ESMO guidelines are something far more structured — they encode a clinical ontology that represents decades of expert consensus.
 
-Consider what NCCN guidelines actually contain:
+Consider what ESMO guidelines actually contain:
 
 - **A hierarchical cancer taxonomy** — from broad categories (solid tumors, hematologic malignancies) through specific cancer types (non-small cell lung cancer) to molecular subtypes (ERBB2-mutant, EGFR-mutant, ALK-rearranged)
 - **Feature symbols** — biomarkers, histological classifications, staging criteria, and performance status designations that define patient categories
@@ -32,17 +32,17 @@ For clinical guidelines, pure RAG has fundamental limitations:
 
 **Vector similarity misses hierarchical structure.** A query about "first-line therapy for ERBB2-mutant NSCLC" needs to navigate a specific path: Lung Cancer → Non-Small Cell → Biomarker-Specific → ERBB2 (HER2) → First-Line. Vector similarity might retrieve chunks mentioning ERBB2 from anywhere in the document — including older algorithms, footnotes, or discussion sections.
 
-**Chunk boundaries destroy treatment algorithms.** NCCN treatment algorithms span multiple pages with complex branching logic. Arbitrary chunking at 512 or 1024 tokens fragments these decision trees into meaningless segments.
+**Chunk boundaries destroy treatment algorithms.** ESMO treatment algorithms span multiple pages with complex branching logic. Arbitrary chunking at 512 or 1024 tokens fragments these decision trees into meaningless segments.
 
 **No mechanism for temporal validation.** Vector databases have no inherent concept of "this recommendation was superseded" or "this drug was withdrawn." Stale chunks coexist with current ones, and similarity search cannot distinguish between them.
 
 ## The Neurosymbolic Alternative
 
-Grounded Retrieval takes a fundamentally different approach. Rather than treating NCCN guidelines as flat text for embedding, it uses their inherent structure as a navigation scaffold:
+Grounded Retrieval takes a fundamentally different approach. Rather than treating ESMO guidelines as flat text for embedding, it uses their inherent structure as a navigation scaffold:
 
 ```
 ┌─────────────────────────────────────────────────────────┐
-│              NCCN Ontology Layers                         │
+│              ESMO Ontology Layers                         │
 ├─────────────────────────────────────────────────────────┤
 │                                                          │
 │  Layer 1: Cancer Taxonomy                                │
@@ -70,7 +70,7 @@ Grounded Retrieval takes a fundamentally different approach. Rather than treatin
 └─────────────────────────────────────────────────────────┘
 ```
 
-The system uses the LLM (GPT-4.1) purely for semantic extraction — understanding what the clinician is asking in terms of cancer type, biomarker profile, treatment line, and clinical context. It then navigates the NCCN table of contents structurally, identifies the relevant section, and extracts content with page-level references.
+The system uses the LLM (GPT-4.1) purely for semantic extraction — understanding what the clinician is asking in terms of cancer type, biomarker profile, treatment line, and clinical context. It then navigates the ESMO table of contents structurally, identifies the relevant section, and extracts content with page-level references.
 
 This is not vector similarity. It's symbolic navigation through a knowledge structure, guided by neural language understanding.
 
@@ -94,15 +94,15 @@ GPT-5.4 has orders of magnitude more parameters than the GPT-4.1 model used in G
 
 **Knowledge currency cannot be solved by scale.** No amount of training data gives a model awareness of a drug approval that occurred after its training cutoff. Only retrieval from current sources solves this.
 
-**Clinical safety requires hard constraints.** A language model can generate any sequence of tokens — including recommendations for withdrawn drugs. Symbolic structures (like current NCCN guidelines) provide hard boundaries on what constitutes valid recommendations.
+**Clinical safety requires hard constraints.** A language model can generate any sequence of tokens — including recommendations for withdrawn drugs. Symbolic structures (like current ESMO guidelines) provide hard boundaries on what constitutes valid recommendations.
 
-**Verification requires structured sources.** Telling a clinician "the AI says to use Drug X" is inadequate. Telling them "NCCN Guidelines, Version 2.2026, page 47 recommends Drug X as Category 1 evidence" enables direct verification. This level of citation is only possible with structured source navigation.
+**Verification requires structured sources.** Telling a clinician "the AI says to use Drug X" is inadequate. Telling them "ESMO Guidelines, Version 2.2026, page 47 recommends Drug X as Category 1 evidence" enables direct verification. This level of citation is only possible with structured source navigation.
 
 ## Implications for Clinical AI
 
 The neurosymbolic advantage in clinical medicine isn't theoretical — it's measurable and consequential. Systems that combine neural language understanding with symbolic knowledge structures consistently outperform pure neural approaches on safety, accuracy, and verifiability.
 
-For oncology specifically, NCCN guidelines provide an ideal symbolic scaffold: they're authoritative, structured, regularly updated, and universally recognized as the standard of care. Using them as a navigation target rather than an embedding source transforms the LLM from an unreliable oracle into a precise retrieval interface.
+For oncology specifically, ESMO guidelines provide an ideal symbolic scaffold: they're authoritative, structured, regularly updated, and universally recognized as the standard of care. Using them as a navigation target rather than an embedding source transforms the LLM from an unreliable oracle into a precise retrieval interface.
 
 The future of clinical AI isn't bigger models. It's smarter architectures that respect the structure of medical knowledge.
 

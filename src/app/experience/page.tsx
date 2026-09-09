@@ -8,6 +8,8 @@ import AnimateOnScroll from '@/components/ui/AnimateOnScroll'
 import Badge from '@/components/ui/Badge'
 import Button from '@/components/ui/Button'
 import GradientText from '@/components/ui/GradientText'
+import WhyItMatters from '@/components/landing/WhyItMatters'
+import { clinicalEvaluations } from '@/content/clinicalEvaluations'
 import { joinWaitlist } from './actions'
 
 /* ------------------------------------------------------------------ */
@@ -33,7 +35,8 @@ interface ClinicalQuestion {
   annotation: string
 }
 
-const clinicalQuestions: ClinicalQuestion[] = [
+const clinicalQuestions: ClinicalQuestion[] = clinicalEvaluations
+/*
   {
     id: 1,
     question:
@@ -54,11 +57,11 @@ const clinicalQuestions: ClinicalQuestion[] = [
     ],
     right: {
       text: 'Lists atezolizumab + bevacizumab, durvalumab + tremelimumab, ipilimumab + nivolumab, and tislelizumab as preferred first-line options, with selected TKIs for patients ineligible for immunotherapy.',
-      citation: 'NCCN Guidelines, Hepatobiliary Cancers v2.2026, Pages 47–48',
+      citation: 'ESMO Guidelines, Hepatobiliary Cancers v2.2026, Pages 47–48',
       extras: [{ text: 'No conflicting external sources identified', variant: 'success' }],
     },
     annotation:
-      "Perplexity\u2019s recommendation of camrelizumab\u2011rivoceranib is particularly concerning \u2014 this combination has been rejected twice by the FDA, yet the model presented it as a viable option. For patients with hepatocellular carcinoma, acting on this recommendation could mean receiving an unapproved therapy.",
+      "Perplexity\u2019s recommendation of camrelizumab\u2011rivoceranib is particularly concerning. This combination has been rejected twice by the FDA, yet the model presented it as a viable option. For patients with hepatocellular carcinoma, acting on this recommendation could mean receiving an unapproved therapy.",
   },
   {
     id: 2,
@@ -68,7 +71,7 @@ const clinicalQuestions: ClinicalQuestion[] = [
       {
         model: 'GPT-5.4',
         text: 'Recommends platinum-doublets + pembrolizumab as first-line. Lists zongertinib only as second-line',
-        badge: 'Contradicts current NCCN guidelines',
+        badge: 'Contradicts current ESMO guidelines',
       },
       {
         model: 'Perplexity',
@@ -83,7 +86,7 @@ const clinicalQuestions: ClinicalQuestion[] = [
     ],
     right: {
       text: 'Recommends zongertinib (Hernexeos) as preferred first-line therapy (76% ORR, Beamion LUNG-1 trial), followed at progression by fam-trastuzumab deruxtecan-nxki or sevabertinib.',
-      citation: 'NCCN Guidelines, NSCLC v5.2026, Pages 82–84',
+      citation: 'ESMO Guidelines, NSCLC v5.2026, Pages 82–84',
       extras: [
         {
           text: 'Late-breaking: Zongertinib first-line expansion approved Feb 26, 2026',
@@ -92,7 +95,7 @@ const clinicalQuestions: ClinicalQuestion[] = [
       ],
     },
     annotation:
-      'Zongertinib received expanded first-line approval on February 26, 2026, with a 76% objective response rate in the Beamion LUNG-1 trial. Every frontier model either missed it entirely or relegated it to second-line \u2014 a meaningful clinical difference for patients with limited options.',
+      'Zongertinib received expanded first-line approval on February 26, 2026, with a 76% objective response rate in the Beamion LUNG-1 trial. Every frontier model either missed it entirely or relegated it to second-line, a meaningful clinical difference for patients with limited options.',
   },
   {
     id: 3,
@@ -102,7 +105,7 @@ const clinicalQuestions: ClinicalQuestion[] = [
       {
         model: 'Claude 4.6',
         text: 'Lists tazemetostat as a treatment option',
-        badge: 'Withdrawn March 9, 2026 \u2014 MDS/leukemia safety signal',
+        badge: 'Withdrawn March 9, 2026: MDS/leukemia safety signal',
         pulse: true,
       },
       {
@@ -117,19 +120,20 @@ const clinicalQuestions: ClinicalQuestion[] = [
       },
     ],
     right: {
-      text: 'Lists all current NCCN-approved regimens including R\u00B2 + tafasitamab and R\u00B2 + epcoritamab. Notes bendamustine only if no prior exposure. Excludes withdrawn and discontinued agents.',
-      citation: 'NCCN Guidelines, B-Cell Lymphomas v3.2026, Pages 128–131',
+      text: 'Lists all current ESMO-recommended regimens including R\u00B2 + tafasitamab and R\u00B2 + epcoritamab. Notes bendamustine only if no prior exposure. Excludes withdrawn and discontinued agents.',
+      citation: 'ESMO Guidelines, B-Cell Lymphomas v3.2026, Pages 128–131',
       extras: [],
     },
     annotation:
-      "Tazemetostat was voluntarily withdrawn by Ipsen on March 9, 2026 after the SYMPHONY-1 trial showed an imbalance in secondary hematologic malignancies including MDS and acute leukemia. Recommending a withdrawn drug isn\u2019t just outdated \u2014 it\u2019s a potential safety hazard.",
+      "Tazemetostat was voluntarily withdrawn by Ipsen on March 9, 2026 after the SYMPHONY-1 trial showed an imbalance in secondary hematologic malignancies including MDS and acute leukemia. Recommending a withdrawn drug isn\u2019t just outdated. It\u2019s a potential safety hazard.",
   },
 ]
+*/
 
 const faqItems = [
   {
     q: 'What data sources does Grounded Retrieval use?',
-    a: 'Primarily NCCN clinical practice guidelines \u2014 the gold standard for oncology treatment recommendations. The system also performs real-time internet search to capture late-breaking updates published between guideline revision cycles.',
+    a: 'Primarily ESMO clinical practice guidelines as a structured oncology reference. The system also performs real-time internet search to capture late-breaking updates published between guideline revision cycles.',
   },
   {
     q: 'Does this replace clinical judgment?',
@@ -137,7 +141,7 @@ const faqItems = [
   },
   {
     q: 'Which LLM does it use? Can I use my own?',
-    a: 'The architecture is model-agnostic. Our published study used GPT-4.1 \u2014 a mid-tier model \u2014 and outperformed every frontier model tested. This demonstrates that the retrieval architecture matters more than model scale. The system can run with any LLM, including local models for data security.',
+    a: 'The architecture is model-agnostic. Our published study used GPT-4.1, a mid-tier model, and outperformed every frontier model tested. This demonstrates that the retrieval architecture matters more than model scale. The system can run with any LLM, including local models for data security.',
   },
   {
     q: 'Is patient data secure?',
@@ -145,20 +149,20 @@ const faqItems = [
   },
   {
     q: 'How current is the guideline data?',
-    a: 'The system retrieves guidelines directly from the NCCN at query time, ensuring access to the latest published version. The complementary internet search captures developments published between guideline revision cycles.',
+    a: 'The system retrieves ESMO guidance at query time, helping keep the answer aligned with the latest available source. The complementary internet search captures developments published between guideline revision cycles.',
   },
 ]
 
 const timelineModels = [
-  { label: 'Gemini 3.1', date: 'Jan 2025', pct: 3 },
+  { label: 'Gemini 3.1', date: 'Jan 2025', pct: 3, align: 'start' },
   { label: 'Claude 4.6', date: 'May 2025', pct: 25 },
   { label: 'GPT 5.4', date: 'Sep 2025', pct: 50 },
   { label: 'DeepSeek V3.2', date: 'Dec 2025', pct: 69 },
 ]
 
 const timelineEvents = [
-  { label: 'Zongertinib 1L approved', date: 'Feb 2026', pct: 81 },
-  { label: 'Tazemetostat withdrawn', date: 'Mar 2026', pct: 88 },
+  { label: 'Zongertinib 1L approved', date: 'Feb 2026', pct: 81, lane: 0 },
+  { label: 'Tazemetostat withdrawn', date: 'Mar 2026', pct: 88, lane: 1 },
 ]
 
 /* ------------------------------------------------------------------ */
@@ -327,11 +331,11 @@ function InteractiveDemo() {
           transition={{ duration: 0.35 }}
           className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6"
         >
-          {/* LEFT — Chatbot */}
+          {/* LEFT: Chatbot */}
           <div className="rounded-xl bg-dark-surface-light border border-danger/10 overflow-hidden">
             <div className="flex items-center gap-2 px-5 py-3 border-b border-white/5 bg-danger/5">
               <IconWarning className="w-4 h-4 text-danger" />
-              <span className="text-sm font-semibold text-danger/90">What your chatbot says</span>
+              <span className="text-sm font-semibold text-danger/90">What foundation models returned</span>
             </div>
 
             <motion.div
@@ -362,11 +366,11 @@ function InteractiveDemo() {
             </motion.div>
           </div>
 
-          {/* RIGHT — Grounded Retrieval */}
+          {/* RIGHT: Grounded Retrieval */}
           <div className="rounded-xl bg-dark-surface-lighter border border-teal/10 overflow-hidden">
             <div className="flex items-center gap-2 px-5 py-3 border-b border-white/5 bg-teal/5">
               <IconCheck className="w-4 h-4 text-teal" />
-              <span className="text-sm font-semibold text-teal">What Grounded Retrieval finds</span>
+              <span className="text-sm font-semibold text-teal">What the Aprilio prototype retrieved</span>
             </div>
 
             <motion.div
@@ -428,36 +432,36 @@ function Timeline() {
     <div className="relative mt-12 select-none">
       {/* Scrollable wrapper for mobile */}
       <div className="overflow-x-auto pb-4 -mx-6 px-6 lg:mx-0 lg:px-0">
-        <div className="relative min-w-[700px] h-56">
+        <div className="relative h-64 min-w-[820px] px-2">
           {/* Main axis */}
-          <div className="absolute left-0 right-0 top-1/2 -translate-y-1/2 h-px bg-white/20" />
+          <div className="absolute left-2 right-2 top-[58%] h-px bg-white/25" />
 
           {/* Danger zone overlay */}
           <div
-            className="absolute top-1/2 -translate-y-1/2 h-16 rounded-md bg-danger/8 border border-danger/10"
-            style={{ left: '69%', right: '0%' }}
+            className="absolute top-[27%] h-[31%] rounded-t-xl border border-b-0 border-danger/15 bg-danger/[0.07]"
+            style={{ left: '69%', right: '0.5rem' }}
           >
-            <span className="absolute -top-6 left-1/2 -translate-x-1/2 whitespace-nowrap text-[11px] font-semibold uppercase tracking-widest text-danger/70">
+            <span className="absolute left-4 top-3 whitespace-nowrap font-mono text-[10px] font-semibold uppercase tracking-[0.16em] text-danger/80">
               the danger zone
             </span>
           </div>
 
           {/* "Now" marker */}
-          <div className="absolute top-1/2 -translate-y-1/2 right-0 flex flex-col items-center">
-            <div className="w-3 h-3 rounded-full bg-teal ring-4 ring-teal/20" />
-            <span className="mt-10 text-xs font-semibold text-teal">Now</span>
+          <div className="absolute right-2 top-[58%] z-20 -translate-y-1/2">
+            <div className="h-3 w-3 rounded-full bg-teal ring-4 ring-teal/20" />
+            <span className="absolute right-0 top-7 text-xs font-semibold text-teal">Now</span>
           </div>
 
-          {/* Model cutoffs — below line */}
+          {/* Model cutoffs below line */}
           {timelineModels.map((m) => (
             <div
               key={m.label}
-              className="absolute top-1/2 flex flex-col items-center"
-              style={{ left: `${m.pct}%`, transform: 'translateX(-50%)' }}
+              className={`absolute top-[58%] flex flex-col ${m.align === 'start' ? 'items-start' : 'items-center'}`}
+              style={{ left: `${m.pct}%`, transform: m.align === 'start' ? 'translateX(0)' : 'translateX(-50%)' }}
             >
-              <div className="w-2.5 h-2.5 rounded-full bg-purple border-2 border-dark-surface" />
-              <div className="mt-3 flex flex-col items-center">
-                <span className="text-xs font-semibold text-white whitespace-nowrap">
+              <div className="h-2.5 w-2.5 -translate-y-1/2 rounded-full border-2 border-dark-surface bg-purple" />
+              <div className={`mt-2 flex flex-col ${m.align === 'start' ? 'items-start' : 'items-center'}`}>
+                <span className="whitespace-nowrap text-xs font-semibold text-white">
                   {m.label}
                 </span>
                 <span className="text-[11px] text-text-on-dark-muted">{m.date}</span>
@@ -465,19 +469,22 @@ function Timeline() {
             </div>
           ))}
 
-          {/* Key events — above line */}
+          {/* Key events above line */}
           {timelineEvents.map((e) => (
             <div
               key={e.label}
-              className="absolute top-1/2 flex flex-col items-center"
+              className="absolute top-[58%] z-10 flex flex-col items-center"
               style={{ left: `${e.pct}%`, transform: 'translateX(-50%)' }}
             >
-              <div className="w-2.5 h-2.5 rounded-full bg-danger border-2 border-dark-surface -mt-0.5" />
-              <div className="absolute bottom-full mb-3 flex flex-col items-center">
-                <span className="text-xs font-semibold text-danger whitespace-nowrap">
+              <div className="h-2.5 w-2.5 -translate-y-1/2 rounded-full border-2 border-dark-surface bg-danger" />
+              <div
+                className="absolute bottom-full flex w-44 flex-col items-center rounded-lg border border-danger/15 bg-dark-surface/85 px-3 py-2 text-center shadow-lg backdrop-blur-sm"
+                style={{ marginBottom: `${16 + e.lane * 52}px` }}
+              >
+                <span className="whitespace-nowrap text-[11px] font-semibold text-danger">
                   {e.label}
                 </span>
-                <span className="text-[11px] text-text-on-dark-muted">{e.date}</span>
+                <span className="mt-0.5 text-[10px] text-text-on-dark-muted">{e.date}</span>
               </div>
             </div>
           ))}
@@ -621,7 +628,7 @@ function WaitlistForm() {
 export default function ExperiencePage() {
   return (
     <>
-      <Navigation />
+      <Navigation variant="research" />
 
       <main className="bg-dark-surface min-h-screen">
         {/* ── Hero ── */}
@@ -638,11 +645,11 @@ export default function ExperiencePage() {
               transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
             >
               <p className="text-sm font-semibold uppercase tracking-wider text-teal mb-4">
-                Live comparison
+                Comparative evaluation
               </p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white font-[family-name:var(--font-heading)]">
-                Experience the{' '}
-                <GradientText>Difference</GradientText>
+                Evaluating retrieval under{' '}
+                <GradientText>changing evidence</GradientText>
               </h1>
             </motion.div>
 
@@ -652,9 +659,7 @@ export default function ExperiencePage() {
               transition={{ duration: 0.7, delay: 0.15, ease: [0.25, 0.1, 0.25, 1] }}
               className="mt-6 text-lg sm:text-xl text-text-on-dark-muted leading-relaxed max-w-2xl mx-auto"
             >
-              Same question. Same day.{' '}
-              <span className="text-white font-medium">Five frontier models got it wrong.</span>{' '}
-              One architecture got it right.
+              Three oncology questions tested across five frontier models and Aprilio&apos;s research prototype. The comparison records omissions, outdated recommendations, and the source basis recovered by structure-first retrieval.
             </motion.p>
           </div>
         </section>
@@ -669,7 +674,7 @@ export default function ExperiencePage() {
         </section>
 
         {/* ── Why This Happens ── */}
-        <section className="py-24 sm:py-32 border-t border-white/5">
+        <section id="why-this-happens" className="scroll-mt-24 py-24 sm:py-32 border-t border-white/5">
           <div className="mx-auto max-w-4xl px-6 lg:px-8">
             <AnimateOnScroll>
               <p className="text-sm font-semibold uppercase tracking-wider text-teal mb-3 text-center">
@@ -707,11 +712,10 @@ export default function ExperiencePage() {
           <div className="mx-auto max-w-3xl px-6 lg:px-8 text-center">
             <AnimateOnScroll>
               <h2 className="text-3xl sm:text-4xl font-bold text-white font-[family-name:var(--font-heading)]">
-                See it for yourself
+                Participate in external validation
               </h2>
               <p className="mt-4 text-lg text-text-on-dark-muted leading-relaxed">
-                We&rsquo;re onboarding physicians, health systems, and research teams. Get early
-                access.
+                We are inviting clinical researchers, domain experts, and governed knowledge-source partners to help test the method across new questions and source sets.
               </p>
             </AnimateOnScroll>
 
@@ -727,10 +731,7 @@ export default function ExperiencePage() {
                 <span className="hidden sm:inline text-white/20">|</span>
                 <span>Validated against 5 frontier models</span>
                 <span className="hidden sm:inline text-white/20">|</span>
-                <span>
-                  Under review at{' '}
-                  <span className="text-teal">npj Digital Medicine</span> (IF 15.1)
-                </span>
+                <span>Provisional patent pending</span>
               </div>
             </AnimateOnScroll>
           </div>
@@ -755,7 +756,7 @@ export default function ExperiencePage() {
           </div>
         </section>
       </main>
-
+      <WhyItMatters />
       <Footer />
     </>
   )

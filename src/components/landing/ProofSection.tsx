@@ -25,15 +25,10 @@ export default function ProofSection() {
   return (
     <section id="evidence" className="bg-paper py-24 sm:py-32">
       <Container>
-        <div className="grid gap-12 lg:grid-cols-[0.92fr_1.08fr] lg:items-end">
+        <div className="max-w-4xl">
           <div>
             <p className="eyebrow text-cyan-deep">Trace, don’t trust</p>
             <h2 className="mt-5 text-4xl font-semibold leading-[1.02] tracking-[-0.05em] text-ink sm:text-5xl lg:text-6xl">See the difference evidence makes.</h2>
-          </div>
-          <div className="lg:pb-2">
-            <p className="max-w-2xl text-lg leading-8 text-ink-muted">
-              Compare a plausible answer with one that preserves its sources, updates, and uncertainty boundary.
-            </p>
           </div>
         </div>
 
@@ -100,7 +95,7 @@ export default function ProofSection() {
                       </div>
                     </div>
                     <div className="space-y-3">
-                      <SourceRow color="bg-cyan" label="NCCN guideline" meta="Exact page trace" />
+                      <SourceRow color="bg-cyan" label="ESMO guideline" meta="Exact page trace" />
                       <SourceRow color="bg-factum" label="FDA approval notice" meta="May 13, 2026" />
                       <SourceRow color="bg-violet-light" label="Ontology pathway" meta="AML → 1L → non-intensive" />
                       <div className="rounded-xl border border-success/20 bg-success/10 px-3 py-3">

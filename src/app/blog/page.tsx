@@ -3,8 +3,8 @@ import BlogListClient from './BlogListClient'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Insights on AI in clinical oncology, grounded retrieval, and evidence-based medicine.',
+  title: 'Technical Journal',
+  description: 'Curated technical writing on AI ontology, taxonomy, grounded retrieval, and structural medical intelligence.',
 }
 
 export default function BlogPage() {

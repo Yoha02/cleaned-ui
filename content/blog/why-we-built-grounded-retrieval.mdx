@@ -7,7 +7,7 @@ description: "The origin story of Grounded Retrieval — built by a practicing m
 keyTakeaways:
   - "A mid-tier model (GPT-4.1) with the right architecture outperformed GPT-5.4, Claude 4.6, Gemini 3.1 Pro, DeepSeek-V3.2, and Perplexity on real clinical questions"
   - "Foundation models hallucinate, serve stale information, and recommend treatments that have been withdrawn or rejected by the FDA"
-  - "Grounded Retrieval combines structured NCCN guideline navigation with real-time internet search, using the LLM for semantic extraction — not fact recall"
+  - "Grounded Retrieval combines structured ESMO guideline navigation with real-time internet search, using the LLM for semantic extraction — not fact recall"
   - "The system provides page-level citations, enabling direct source verification"
 ---
 
@@ -15,7 +15,7 @@ keyTakeaways:
 
 Dr. Gary Takahashi is a practicing medical oncologist. He treats patients with lung cancer, hepatocellular carcinoma, melanoma, lymphoma, and cholangiocarcinoma — each governed by complex treatment algorithms that change throughout the year.
 
-NCCN Clinical Practice Guidelines, the de facto standard of care in the United States, update on a rolling basis. The NCCN publishes over 80 guidelines covering virtually every cancer type, with major guidelines receiving 4–8 updates annually.<sup>3</sup> Each update can introduce new first-line therapies, remove options based on safety signals, or restructure entire treatment algorithms based on new trial data.
+ESMO Clinical Practice Guidelines update on a rolling basis and provide a structured oncology reference set across major cancer types. Each update can introduce new first-line therapies, remove options based on safety signals, or restructure entire treatment algorithms based on new trial data.
 
 The tools available to stay current are inadequate. Manual guideline review is time-consuming. Conference abstracts trail real-world approvals. And large language models — despite their promise — fail in ways that are particularly dangerous in clinical oncology.
 
@@ -51,7 +51,7 @@ Grounded Retrieval was designed around a core insight: the LLM should extract me
               ┌────────────┴────────────┐
               ▼                         ▼
 ┌──────────────────────┐   ┌──────────────────────┐
-│  NCCN TOC Navigation │   │  Internet Search     │
+│  ESMO TOC Navigation │   │  Internet Search     │
 │  Section ID + Page   │   │  (DuckDuckGo)        │
 │  Content Extraction  │   │  Late-breaking       │
 └──────────┬───────────┘   └──────────┬───────────┘
@@ -63,7 +63,7 @@ Grounded Retrieval was designed around a core insight: the LLM should extract me
 └─────────────────────────────────────────────────────────┘
 ```
 
-The system uses a Thread Pool Executor to run NCCN guideline navigation and internet search in parallel. NCCN navigation isn't vector similarity — it's structured traversal through the table of contents, identifying the correct guideline, locating the relevant section, and extracting content with specific page numbers.
+The system uses a Thread Pool Executor to run ESMO guideline navigation and internet search in parallel. ESMO navigation isn't vector similarity — it's structured traversal through the table of contents, identifying the correct guideline, locating the relevant section, and extracting content with specific page numbers.
 
 ## Why a Mid-Tier Model Wins
 
@@ -91,4 +91,4 @@ Grounded Retrieval was built to close this gap — not by building a better mode
 
 1. Takahashi G, Mengistu E, Tarshizi E, Van Benschoten A. Building a Large Language Model Assistant to Maintain Currency with Medical Oncology Guidelines. Under review, npj Digital Medicine.
 2. FDA grants accelerated approval to zongertinib for non-small cell lung cancer with an activating ERBB2 (HER2) mutation. FDA.gov. February 26, 2026.
-3. NCCN Clinical Practice Guidelines in Oncology. National Comprehensive Cancer Network. nccn.org.
+3. ESMO Clinical Practice Guidelines. ESMO.org.

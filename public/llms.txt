@@ -1,5 +1,5 @@
 # Aprilio
-> Aprilio develops Grounded Retrieval, an LLM-based architecture for accurate clinical decision support. In a published study (under review at npj Digital Medicine, IF 15.1), our system using GPT-4.1 outperformed GPT-5.4, Claude 4.6 Opus, Gemini 3.1 Pro, DeepSeek-V3.2, and Perplexity on real clinical oncology questions by combining structured NCCN guideline data with real-time internet search.
+> Aprilio develops Grounded Retrieval, an LLM-based architecture for accurate clinical decision support. In a published study (under review at npj Digital Medicine, IF 15.1), our system using GPT-4.1 outperformed GPT-5.4, Claude 4.6 Opus, Gemini 3.1 Pro, DeepSeek-V3.2, and Perplexity on real clinical oncology questions by combining structured ESMO guideline data with real-time internet search.
 
 ## Core Pages
 - [About Aprilio](https://aprilio.ai/about): Company overview, team, mission
@@ -10,20 +10,19 @@
 - [Contact](https://aprilio.ai/contact): Get in touch with the team
 
 ## Key Facts
-- Grounded Retrieval uses structured NCCN clinical practice guidelines as the primary knowledge source
+- Grounded Retrieval uses structured ESMO clinical practice guidelines as the primary knowledge source
 - The system simultaneously performs internet search for late-breaking updates between guideline revision cycles
-- The LLM performs semantic extraction and synthesis — not fact recall
+- The LLM performs semantic extraction and synthesis, not fact recall
 - Page-level citations enable direct source verification
-- Architecture is model-agnostic — works with any LLM, can run locally for data security
+- Architecture is model-agnostic. It works with any LLM and can run locally for data security.
 - Built by a practicing medical oncologist who validated it on real clinical questions
 
 ## Blog (Latest)
-- [Why We Built Grounded Retrieval](https://aprilio.ai/blog/why-we-built-grounded-retrieval): The origin story — a practicing oncologist's frustration with chatbot hallucinations led to an architecture that outperforms every frontier model.
+- [Why We Built Grounded Retrieval](https://aprilio.ai/blog/why-we-built-grounded-retrieval): The origin story of how a practicing oncologist's frustration with chatbot hallucinations led to an architecture that outperforms every frontier model.
 - [What Happens When Your AI Recommends an FDA-Rejected Drug](https://aprilio.ai/blog/what-happens-when-ai-recommends-fda-rejected-drug): Perplexity recommended a drug rejected twice by the FDA. Claude suggested a withdrawn medication. The patient safety implications are real.
-- [The Neurosymbolic Advantage: Why Structured Data Beats Bigger Models](https://aprilio.ai/blog/neurosymbolic-advantage): NCCN guidelines as a clinical ontology — and why symbolic scaffolding outperforms pure neural approaches.
+- [The Neurosymbolic Advantage: Why Structured Data Beats Bigger Models](https://aprilio.ai/blog/neurosymbolic-advantage): ESMO guidelines as a clinical ontology, and why symbolic scaffolding outperforms pure neural approaches.
 
 ## Team
-- Gary Takahashi, MD — Practicing medical oncologist, system architect
-- Andrew Van Benschoten, PhD — Biophysics (UCSF), strategy and business development
-- Eyoha Mengistu — Technology, product, infrastructure
-- Ebrahim Tarshizi, PhD — Academic operations, research
+- Gary Takahashi, MD, MS, FACP: Co-founder and lead scientist; practicing medical oncologist and system architect
+- Eyoha Mengistu, MS: Co-founder; technology, product, and infrastructure
+- Ebrahim Tarshizi, PhD, MBA: Co-founder; academic operations and research

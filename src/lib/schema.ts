@@ -6,29 +6,24 @@ export function organizationSchema() {
     url: 'https://aprilio.ai',
     logo: 'https://aprilio.ai/brand/aprilio-icon.jpg',
     description:
-      'Aprilio develops structurally grounded retrieval infrastructure that turns complex, changing knowledge bases into current, verifiable Factums with exact provenance.',
+      'Aprilio is a multidisciplinary research effort studying structure-first retrieval for changing medical knowledge.',
     foundingDate: '2025',
     founders: [
       {
         '@type': 'Person',
-        name: 'Gary Takahashi',
-        jobTitle: 'Clinical Architecture',
+        name: 'Gary Takahashi, MD, MS, FACP',
+        jobTitle: 'Co-founder and Lead Scientist',
         description: 'Medical oncologist and creator of the original guideline retrieval system.',
       },
       {
         '@type': 'Person',
-        name: 'Andrew Van Benschoten',
-        jobTitle: 'Systems and Strategy',
+        name: 'Eyoha Mengistu, MS',
+        jobTitle: 'Co-founder, Product and Automation',
       },
       {
         '@type': 'Person',
-        name: 'Eyoha Mengistu',
-        jobTitle: 'Product and Automation',
-      },
-      {
-        '@type': 'Person',
-        name: 'Ebrahim Tarshizi',
-        jobTitle: 'Operations and Research',
+        name: 'Ebrahim Tarshizi, PhD, MBA',
+        jobTitle: 'Co-founder, Operations and Research',
       },
     ],
     sameAs: [],
@@ -101,7 +96,7 @@ export function medicalWebPageSchema({
     },
     reviewedBy: {
       '@type': 'Person',
-      name: 'Gary Takahashi, MD',
+      name: 'Gary Takahashi, MD, MS, FACP',
       jobTitle: 'Medical Oncologist',
     },
   }

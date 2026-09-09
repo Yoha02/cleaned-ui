@@ -43,10 +43,10 @@ We tested six clinical questions across five frontier models. The results reveal
 |---|---|---|---|---|---|---|
 | First-line ERBB2-mutant NSCLC | Zongertinib (Feb 2026 approval)<sup>4</sup> | Missed | Missed | Missed | Missed | Missed |
 | Second-line FGFR2+ cholangiocarcinoma | Sevabertinib (Nov 2025 approval)<sup>5</sup> | Missed | Missed | Missed | Missed | Missed |
-| First-line HCC systemic therapy | Current NCCN recs with citations | Incomplete | Incomplete | FDA-rejected drug<sup>2</sup> | China-only drug | Incomplete |
+| First-line HCC systemic therapy | Current ESMO guidance with citations | Incomplete | Incomplete | FDA-rejected drug<sup>2</sup> | China-only drug | Incomplete |
 | Second-line follicular lymphoma | Current options (excl. withdrawn) | Incomplete | Withdrawn drug<sup>3</sup> | Incomplete | Incomplete | Incomplete |
 | First-line metastatic TNBC (PD-L1+) | Pembrolizumab + chemo with citations | Partially correct | Partially correct | Partially correct | Partially correct | Partially correct |
-| Adjuvant Stage III melanoma (BRAF V600+) | Current guideline recs with page refs | Partially correct | Partially correct | Partially correct | Partially correct | Partially correct |
+| Adjuvant Stage III melanoma (BRAF V600+) | Current guideline guidance with page refs | Partially correct | Partially correct | Partially correct | Partially correct | Partially correct |
 
 Not a single frontier model provided complete, current, and safe recommendations across all six questions. Every model had at least one dangerous failure mode.
 
@@ -71,8 +71,8 @@ These aren't theoretical concerns. As health systems consider deploying AI tools
 Grounded Retrieval's architecture is specifically designed to prevent each failure mode:
 
 - **Staleness:** Real-time internet search via DuckDuckGo captures late-breaking approvals and withdrawals
-- **Negative knowledge:** NCCN guidelines are updated to reflect withdrawals; structured navigation ensures current content
-- **Geographic confusion:** NCCN guidelines are U.S.-specific by definition; the system operates within a single regulatory framework
+- **Negative knowledge:** ESMO guidelines are updated to reflect withdrawals; structured navigation ensures current content
+- **Jurisdictional confusion:** Structured guideline navigation keeps recommendations inside the intended clinical and regulatory frame
 - **Citation:** Page-level references enable direct verification against source documents
 
 The system doesn't ask the LLM to recall treatment information. It asks the LLM to understand the clinical question, then retrieves the answer from authoritative, current sources. The distinction is fundamental — and it's why a mid-tier model with the right architecture outperforms every frontier model on clinical accuracy.

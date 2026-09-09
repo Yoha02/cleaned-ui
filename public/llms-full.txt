@@ -1,12 +1,12 @@
-# Aprilio — Grounded Retrieval for Clinical Intelligence
+# Aprilio: Grounded Retrieval for Clinical Intelligence
 
 ## What is Aprilio?
 
-Aprilio is a healthcare AI company that has developed Grounded Retrieval — an LLM-based architecture that extracts semantic information from physician queries to automate retrieval of appropriate clinical guideline information, while simultaneously performing internet search for late-breaking updates. The system identifies and highlights the statement that best answers the query, with exact page number references for source validation.
+Aprilio is a healthcare AI company that has developed Grounded Retrieval, an LLM-based architecture that extracts semantic information from physician queries to automate retrieval of appropriate clinical guideline information, while simultaneously performing internet search for late-breaking updates. The system identifies and highlights the statement that best answers the query, with exact page number references for source validation.
 
 ## The Problem
 
-Medical oncology moves fast. Clinical practice guidelines from the NCCN are updated frequently — sometimes with practice-changing implications: new drugs approved, staging criteria revised, treatments withdrawn. Physicians currently rely on memory, periodic guideline downloads, or foundation model chatbots that hallucinate and serve stale information.
+Medical oncology moves fast. Clinical practice guidelines from ESMO are updated frequently, sometimes with practice-changing implications: new drugs approved, staging criteria revised, and treatments withdrawn. Physicians currently rely on memory, periodic guideline downloads, or foundation model chatbots that hallucinate and serve stale information.
 
 Foundation model chatbots present serious risks in clinical settings:
 - They recommend drugs that have been rejected by the FDA
@@ -21,42 +21,41 @@ In a study under review at npj Digital Medicine (Impact Factor 15.1), Grounded R
 
 Specific findings from the study:
 - All five foundation models provided information that was incomplete and did not reflect late-breaking updates
-- Perplexity recommended camrelizumab + rivoceranib for hepatocellular carcinoma — a combination rejected twice by the FDA
-- DeepSeek recommended sintilimab — available only in China, not the United States
-- Claude 4.6 listed tazemetostat — withdrawn by Ipsen on March 9, 2026 due to a safety signal for MDS and acute leukemia in the SYMPHONY-1 trial
+- Perplexity recommended camrelizumab + rivoceranib for hepatocellular carcinoma, a combination rejected twice by the FDA
+- DeepSeek recommended sintilimab, which is available only in China, not the United States
+- Claude 4.6 listed tazemetostat, which Ipsen withdrew on March 9, 2026 due to a safety signal for MDS and acute leukemia in the SYMPHONY-1 trial
 - Every frontier model missed zongertinib as first-line therapy for ERBB2-mutant NSCLC (approved February 26, 2026) and sevabertinib entirely
 - Grounded Retrieval provided correct, current answers across all clinical questions with page-level citations
 
 ## How Grounded Retrieval Works
 
 1. A physician asks a clinical question in natural language
-2. The LLM extracts semantic meaning from the query to identify the relevant NCCN guideline
+2. The LLM extracts semantic meaning from the query to identify the relevant ESMO guideline
 3. A Thread Pool Executor simultaneously:
-   a. Retrieves the NCCN guideline PDF, extracts the table of contents, identifies relevant sections, and scores pages for relevance
+   a. Retrieves the ESMO guideline PDF, extracts the table of contents, identifies relevant sections, and scores pages for relevance
    b. Performs an internet search for late-breaking updates published between guideline revision cycles
 4. The LLM synthesizes the best answer from retrieved content (not from training memory), highlights the most relevant statement, provides page-number citations, and flags any conflicting external information
 
 Key architectural principles:
-- The LLM does not recall facts — it reads them from authoritative sources
+- The LLM does not recall facts. It reads them from authoritative sources.
 - Structured navigation via table of contents eliminates the need for vector similarity search
 - Natural page boundaries for text chunking avoid tokenization errors
 - Parallel retrieval captures both guideline-based and emerging information
 - Page-level citations enable direct source verification
-- Architecture is model-agnostic — works with any LLM
+- Architecture is model-agnostic and works with any LLM
 
 ## The Team
 
-- Gary Takahashi, MD — Practicing medical oncologist at the University of San Diego. Built and clinically validated the Grounded Retrieval system. Uses it in his own clinical practice.
-- Andrew Van Benschoten, PhD — Biophysicist (UCSF). Strategy, business development, and engineering vision.
-- Eyoha Mengistu — Technology, product development, infrastructure, and web presence.
-- Ebrahim Tarshizi, PhD — Academic operations, university relationships, and research coordination.
+- Gary Takahashi, MD, MS, FACP: Co-founder and lead scientist. Practicing medical oncologist who built and clinically validated the Grounded Retrieval system.
+- Eyoha Mengistu, MS: Co-founder. Technology, product development, infrastructure, and web presence.
+- Ebrahim Tarshizi, PhD, MBA: Co-founder. Academic operations, university relationships, and research coordination.
 
 ## Key Differentiators
 
-1. Architecture over model scale: A mid-tier model beat every frontier model — the retrieval architecture matters more than the model
+1. Architecture over model scale: A mid-tier model beat every frontier model. The retrieval architecture matters more than the model.
 2. Patient safety: Other tools actively recommend harmful, withdrawn, or unavailable treatments
-3. Verifiable citations: Page-level references from authoritative NCCN guidelines
-4. Neurosymbolic approach: NCCN guidelines serve as a structured clinical ontology (taxonomy, biomarkers, decision logic, evidence grading), not just a document corpus
+3. Verifiable citations: Page-level references from authoritative ESMO guidelines
+4. Neurosymbolic approach: ESMO guidelines serve as a structured clinical ontology (taxonomy, biomarkers, decision logic, evidence grading), not just a document corpus
 5. Clinical validation: Built and validated by a practicing oncologist on real clinical questions
 6. Model-agnostic: Works with any LLM, can run locally for data security
 

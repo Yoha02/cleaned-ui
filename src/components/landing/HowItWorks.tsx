@@ -8,13 +8,13 @@ import RetrievalComparison from './RetrievalComparison'
 
 export default function HowItWorks() {
   return (
-    <section id="engine" className="relative overflow-hidden bg-mist py-20 sm:py-28">
+    <section id="engine" className="relative overflow-hidden bg-mist py-14 sm:py-16">
       <div className="absolute inset-0 soft-grid opacity-45" aria-hidden="true" />
       <Container className="relative">
-        <div className="grid gap-8 lg:grid-cols-[.94fr_1.06fr] lg:items-end">
+        <div className="grid gap-6 lg:grid-cols-[.94fr_1.06fr] lg:items-end">
           <div>
             <p className="eyebrow text-cyan-deep">Architecture</p>
-            <h2 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-0.05em] text-ink sm:text-5xl lg:text-6xl">Two retrieval paths. One critical difference.</h2>
+            <h2 className="mt-3 max-w-3xl text-4xl font-semibold leading-[1.02] tracking-[-0.05em] text-ink lg:text-5xl">Two retrieval paths. One critical difference.</h2>
           </div>
           <p className="max-w-xl text-lg leading-8 text-ink-muted lg:pb-2">Traditional RAG finds similar text. Aprilio’s Grounded Adaptive Retrieval follows structure, verifies recency, and preserves the evidence boundary.</p>
         </div>
@@ -63,7 +63,7 @@ export default function HowItWorks() {
               <p className="mt-1 text-sm leading-6 text-ink-muted">When a source changes or a layer fails, Aprilio rebuilds the affected part of the harness.</p>
             </div>
           </div>
-          <Link href="/experience" className="text-sm font-semibold text-ink transition-colors hover:text-cyan-deep">Explore the technical experience <span aria-hidden="true">↗</span></Link>
+          <Link href="/#evaluations" className="text-sm font-semibold text-ink transition-colors hover:text-cyan-deep">Explore the evaluations <span aria-hidden="true">↗</span></Link>
         </div>
       </Container>
     </section>

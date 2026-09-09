@@ -83,23 +83,23 @@ export default function BlogPostClient({
 }) {
   return (
     <>
-      <Navigation />
+      <Navigation variant="research" />
       <main>
         {/* Hero */}
-        <section className="relative bg-dark-surface pt-32 pb-16 overflow-hidden">
-          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(0,201,167,0.06),transparent_60%)]" />
+        <section className="hero-light relative overflow-hidden pb-16 pt-32">
+          <div className="hero-aurora absolute inset-0 opacity-60" />
           <Container className="relative">
             <AnimateOnScroll>
               <div className="flex items-center gap-3 mb-4">
                 <Badge variant="info">
                   {categoryLabels[article.category] || article.category}
                 </Badge>
-                <span className="text-sm text-text-on-dark-muted">{article.readingTime}</span>
+                <span className="text-sm text-ink-muted">{article.readingTime}</span>
               </div>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white font-[family-name:var(--font-heading)] leading-tight">
+              <h1 className="text-3xl font-semibold leading-tight tracking-[-0.04em] text-ink sm:text-4xl lg:text-5xl">
                 {article.title}
               </h1>
-              <div className="mt-5 flex items-center gap-4 text-sm text-text-on-dark-muted">
+              <div className="mt-5 flex items-center gap-4 text-sm text-ink-muted">
                 <time dateTime={article.date}>
                   {formatDateOnly(article.date)}
                 </time>
@@ -159,11 +159,11 @@ export default function BlogPostClient({
 
         {/* Related Articles */}
         {relatedArticles.length > 0 && (
-          <section className="py-16 bg-dark-surface">
+          <section className="bg-mist py-16">
             <Container>
               <AnimateOnScroll>
-                <h2 className="text-2xl font-bold text-white font-[family-name:var(--font-heading)] mb-8">
-                  Related Articles
+                <h2 className="mb-8 text-2xl font-semibold text-ink">
+                  Related research notes
                 </h2>
               </AnimateOnScroll>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
